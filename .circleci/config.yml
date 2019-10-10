@@ -1,11 +1,8 @@
-version: 2.1
-executors:
-        executor-main:
-                docker:
-                        - image: debian:stretch
+version: 2
 jobs:
         build:
-                executor: executor-main
+                docker:
+                        - image: debian:stretch
                 steps:
                         - checkout
                         - run:
@@ -13,7 +10,8 @@ jobs:
                                 echo: "Hello, world!"
 
         print_date:
-                executor: executor-main
+                docker:
+                        - image: debian:stretch
                 steps:
                         - checkout
                         - run:
@@ -21,7 +19,8 @@ jobs:
                                 command: date
 
         echo_foo:
-                executor: executor-main
+                docker:
+                        - image: debian:stretch
                 steps:
                         - run: echo "foo"
 
