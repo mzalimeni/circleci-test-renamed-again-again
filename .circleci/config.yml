@@ -16,7 +16,6 @@ jobs:
 
 workflows:
         version: 2
-        invalid_key: foo
         build_stuff:
                 jobs:
-                        - DNE
+                        - build
