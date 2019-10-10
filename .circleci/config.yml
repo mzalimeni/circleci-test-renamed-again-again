@@ -54,4 +54,4 @@ workflows:
                         - print_date
                         - echo_foo:
                                 requires:
-                                        -build
+                                        - build
