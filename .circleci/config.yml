@@ -1,21 +1,34 @@
 version: 2
-jobs:
-        build:
+executors:
+        - executor-main:
                 docker:
                         - image: debian:stretch
-
+jobs:
+        build:
+                executor: executor-main
                 steps:
                         - checkout
                         - run:
                                 name: Greeting
-                                command: echo "Hello, world"
+                                echo: "Hello, world!"
 
+        print_date:
+                executor: executor-main
+                steps:
+                        - checkout
                         - run:
                                 name: Print current time
                                 command: date
+
+        echo_foo:
+                executor: executor-main
+                steps:
+                        - run: echo "foo"
 
 workflows:
         version: 2
         build_stuff:
                 jobs:
                         - build
+                        - print_date
+                        - echo_foo
