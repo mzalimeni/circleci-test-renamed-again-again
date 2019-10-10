@@ -10,7 +10,7 @@ jobs:
                                 command: sleep 15s
                         - run:
                                 name: Greeting
-                                command: echo "Hello, world!"
+                                command: echo "dHello, world!"
 
         print_date:
                 docker:
@@ -33,4 +33,10 @@ workflows:
                 jobs:
                         - build
                         - print_date
-                        - echo_foo
+                        - hold_for_approval:
+                                type: approval
+                                requires:
+                                        - build
+                        - echo_foo:
+                                requires:
+                                        - hold_for_approval
