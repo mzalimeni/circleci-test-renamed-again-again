@@ -7,7 +7,7 @@ jobs:
                         - checkout
                         - run:
                                 name: Greeting
-                                command: echo "Hello, world!"
+                                command: sleep 5s && echo "Hello, world!"
 
         print_date:
                 docker:
