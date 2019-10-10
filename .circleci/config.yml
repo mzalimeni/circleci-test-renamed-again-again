@@ -6,8 +6,11 @@ jobs:
                 steps:
                         - checkout
                         - run:
+                                name: Sleep 15s
+                                command: sleep 15s
+                        - run:
                                 name: Greeting
-                                command: sleep 5s && echo "Hello, world!"
+                                command: echo "Hello, world!"
 
         print_date:
                 docker:
