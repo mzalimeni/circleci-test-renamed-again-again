@@ -1,6 +1,6 @@
 version: 2
 executors:
-        - executor-main:
+        executor-main:
                 docker:
                         - image: debian:stretch
 jobs:
