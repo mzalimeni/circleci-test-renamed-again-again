@@ -40,3 +40,18 @@ workflows:
                         - echo_foo:
                                 requires:
                                         - hold_for_approval
+
+        my_scheduled_workflow:
+                triggers:
+                        - schedule:
+                                cron: "58 0 * * *"
+                                filters:
+                                        branches:
+                                                only:
+                                                        - master
+                jobs:
+                        - build
+                        - print_date
+                        - echo_foo:
+                                requires:
+                                        -build
