@@ -58,12 +58,12 @@ workflows:
         version: 2
         build_stuff:
                 jobs:
-                        - build
-                        - print_date
                         - hold_for_approval:
                                 type: approval
-                                requires:
-                                        - build
+                        - build
+                                requires: 
+                                        - hold_for_approval
+                        - print_date
                         - echo_foo:
                                 requires:
                                         - hold_for_approval
