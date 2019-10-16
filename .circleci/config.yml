@@ -60,7 +60,7 @@ workflows:
                 jobs:
                         - hold_for_approval:
                                 type: approval
-                        - build
+                        - build:
                                 requires: 
                                         - hold_for_approval
                         - print_date
